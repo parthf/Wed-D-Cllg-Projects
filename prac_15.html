@@ -1,0 +1,38 @@
+<!--Write a JavaScript code to rotate images after a specific time interval-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(228, 236, 238);">
+    <img align=center id="img" src="https://source.unsplash.com/WLUHO9A_xik" height="600" width="600" />
+    <button onClick="rotateImg()"><b style="font-size: large;">Rotate Image</b></button>
+    <b> (Else it will be automatically Rotate After Every 3 seconds)</b>
+    <script>
+        let rotation = 0;
+        let j = 0;
+
+        function rotateImg() {
+            rotation += 90;
+            if (rotation === 360) {
+                rotation = 0;
+            }
+            document.querySelector("#img").style.transform = `rotate(${rotation}deg)`;
+        }
+
+        setInterval(rotateImg, 3000);
+    </script>
+</body>
+
+</html>

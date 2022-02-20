@@ -1,0 +1,310 @@
+<!--Create HTML Page that contains form with fields Name, Email, Mobile No, Gender, Favourite Color and a
+button. Also write a JavaScript code to combine and display the information in textbox when the button is
+clicked.-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0" />
+    <title>FORM</title>
+    <style>
+      html {
+        height: 100%;
+}
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: linear-gradient(#143029, #552452);
+}
+      .login-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 800px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.5);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-evenly;
+}
+.response {
+        visibility: hidden;
+      }
+      h2 {
+        margin: 0 0 30px;
+        padding: 0;
+        color: #fff;
+        text-align: center;
+}
+      .login-box .radio {
+        display: flex;
+        color: #fff;
+        margin-bottom: 30px;
+        flex-direction: column;
+}
+ .login-box .radio input[type="radio"]:after {
+  width: 10px;
+  height: 10px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #fff;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid #fff;
+}
+.login-box .radio input[type="radio"]:checked:after {
+  width: 10px;
+  height: 10px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #03e9f4;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+.login-box .user-box {
+  position: relative;
+}
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        pointer-events: none;
+        transition: 0.5s;
+}
+      .login-box .user-box input:focus ~ label,
+      .login-box .user-box input:valid ~ label {
+        top: -20px;
+        left: 0;
+        color: #03e9f4;
+        font-size: 12px;
+}
+      .login-box form a {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        color: #03e9f4;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: 0.5s;
+        margin-top: 40px;
+        letter-spacing: 4px;
+}
+      .login-box a:hover {
+        background: #03e9f4;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0
+50px #03e9f4,
+          0 0 100px #03e9f4;
+}
+      .login-box a span {
+        position: absolute;
+        display: block;
+}
+      .login-box a span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent,
+#03e9f4);
+        animation: btn-anim1 1s linear infinite;
+ 
+}
+       @keyframes btn-anim1 {
+        0% {
+          left: -100%;
+        }
+50%, 100% {
+left: 100%; }
+}
+      .login-box a span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent,
+#03e9f4);
+        animation: btn-anim2 1s linear infinite;
+        animation-delay: 0.25s;
+      }
+      @keyframes btn-anim2 {
+        0% {
+top: -100%; }
+50%, 100% {
+top: 100%; }
+}
+      .login-box a span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+height: 2px;
+        background: linear-gradient(270deg, transparent,
+#03e9f4);
+        animation: btn-anim3 1s linear infinite;
+        animation-delay: 0.5s;
+      }
+      @keyframes btn-anim3 {
+        0% {
+          right: -100%;
+        }
+
+ 50%, 100% {
+          right: 100%;
+        }
+}
+      .login-box a span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent,
+#03e9f4);
+        animation: btn-anim4 1s linear infinite;
+        animation-delay: 0.75s;
+      }
+      @keyframes btn-anim4 {
+        0% {
+          bottom: -100%;
+        }
+50%, 100% {
+          bottom: 100%;
+        }
+}
+.vl {
+        border-left: 2px solid #03e9f4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-box">
+      <div style="width: 48%">
+        <h2>Enter Details</h2>
+        <form>
+>
+<div class="user-box">
+  <input type="text" name="" id="name" required="" />
+  <label>Name</label>
+</div>
+<div class="user-box">
+  <input
+    type="text"
+    name=""
+    id="email"
+    required=""
+/>
+            <label>Email</label>
+          </div>
+          <div class="user-box">
+            <input
+              type="text"
+              name=""
+              id="mobileno"
+              required=""
+/>
+            <label>Mobile no</label>
+          </div>
+          <div class="radio">
+            <label style="margin-bottom: 10px">Gender</label>
+            <div id="gender" style="display: flex">
+              <div style="margin-right: 5px; display: flex">
+                <input type="radio" id="male" name="gender"
+value="male" /> Male
+              </div>
+              <div style="margin-right: 5px; display: flex">
+                <input type="radio" id="female" name="gender"
+value="female" />
+                Female
+              </div>
+              <div style="display: flex">
+                <input type="radio" id="other" name="gender"
+value="other" />
+                Other
+              </div>
+            </div>
+          </div>
+          <div class="user-box">
+            <input type="text" name="" id="color"
+required="" />
+            <label>Favourite Color</label>
+          </div>
+          <a onclick="onSubmit()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+Submit </a>
+        </form>
+      </div>
+      <div style="padding: 0 20px;display: flex;">
+        <div class="vl"></div></div>
+      <div style="width: 48%">
+        <h2>Response</h2>
+ 
+<p style="color: #fff" id="response"></p>
+      </div>
+    </div>
+    <script>
+      function onSubmit() {
+        document.getElementById("response").style.visibility =
+"visible";
+        let gender = "";
+        if (document.getElementById("male").checked) {
+          gender = document.getElementById("male").value;
+        }
+        if (document.getElementById("female").checked) {
+          gender = document.getElementById("female").value;
+        }
+        if (document.getElementById("other").checked) {
+          gender = document.getElementById("other").value;
+        }
+        let response = "";
+        response =
+          "Name: " +
+          document.getElementById("name").value +
+          "\n" +
+          "Email: " +
+          document.getElementById("email").value +
+          "\n " +
+          "Mobile No: " +
+          document.getElementById("mobileno").value +
+          "\n " +
+          "Gender: " +
+          gender +
+          "\n" +
+          "Favourite color: " +
+          document.getElementById("color").value;
+        document.getElementById("response").innerText =
+response;
+} </script>
+  </body>
+</html>

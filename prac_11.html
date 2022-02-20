@@ -1,0 +1,23 @@
+<!--Develop a JavaScript to display today’s date.-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: burlywood;">
+    <h1 align=center>Today's Date</h1>
+    <p style="font-size: 30px; font-weight: bold;" align=center id="p1"></p>
+
+    <script>
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        document.getElementById('p1').innerHTML = date;
+    </script>
+</body>
+
+</html>
